@@ -13,6 +13,6 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/search/search.component').then((m) => m.SearchComponent),
   },
-  { path: '', pathMatch: 'full', redirectTo: 'register' },
-  { path: '**', redirectTo: 'register' },
+  { path: '', pathMatch: 'full', redirectTo: 'search' },
+  { path: '**', redirectTo: 'search' },
 ];
