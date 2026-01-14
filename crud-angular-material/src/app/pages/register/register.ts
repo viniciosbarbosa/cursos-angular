@@ -6,7 +6,8 @@ export class Costumer {
   cpf?: string;
   birthDate?: string;
   email?: string;
-
+  state?: string;
+  city?: string;
   static newClient() {
     const costumer = new Costumer();
     costumer.id = uuidv4();

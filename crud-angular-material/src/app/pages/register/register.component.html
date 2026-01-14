@@ -60,6 +60,45 @@
               />
             </mat-form-field>
           </div>
+
+          <div fxLayout="row" fxLayout="start" fxLayoutGap="1rem">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Data de nascimento: *</mat-label>
+              <input
+                mask="00/00/0000"
+                name="birthDate"
+                [(ngModel)]="costumer.birthDate"
+                placeholder="00/00/0000"
+                type="text"
+                matInput
+              />
+            </mat-form-field>
+          </div>
+
+          <div fxLayout="row" fxLayout="start" fxLayoutGap="1rem">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>UF: *</mat-label>
+              <mat-select
+                [(value)]="costumer.state"
+                (selectionChange)="getCity($event)"
+              >
+                <mat-option *ngFor="let state of states" [value]="state.sigla">
+                  {{ state.sigla }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div fxLayout="row" fxLayout="start" fxLayoutGap="1rem">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Cidade: *</mat-label>
+              <mat-select [(value)]="costumer.city">
+                <mat-option *ngFor="let city of cities" [value]="city.nome">
+                  {{ city.nome }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
         </mat-card-content>
 
         <mat-card-actions>
@@ -74,7 +113,7 @@
           }
 
           <button mat-flat-button color="accent" class="ml-5">
-            <mat-icon>backspace</mat-icon> Deletar
+            <mat-icon>backspace</mat-icon> Limpar
           </button>
         </mat-card-actions>
       </mat-card>
