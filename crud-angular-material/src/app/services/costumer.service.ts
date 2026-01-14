@@ -28,6 +28,10 @@ export class CostumerService {
     }
   }
 
+  listCostumers(name: string): Costumer[] {
+    return this.getStorage();
+  }
+
   saveStorage(costumers: Costumer) {
     const storage = this.getStorage();
     storage.push(costumers);

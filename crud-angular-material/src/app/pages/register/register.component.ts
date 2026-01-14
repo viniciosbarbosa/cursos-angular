@@ -24,8 +24,8 @@ import { CostumerService } from '../../services/costumer.service';
   styleUrl: './register.component.scss',
 })
 export class RegisterComponent {
-  costumer: Costumer = Costumer.newClient();
   constructor(private service: CostumerService) {}
+  costumer: Costumer = Costumer.newClient();
 
   save() {
     this.service.saveStorage(this.costumer);
