@@ -38,6 +38,7 @@
               <mat-label>CPF: *</mat-label>
               <input
                 name="cpf"
+                mask="000.000.000-00"
                 [(ngModel)]="costumer.cpf"
                 type="text"
                 matInput
@@ -50,9 +51,11 @@
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>Data de nascimento: *</mat-label>
               <input
+                mask="00/00/0000"
                 name="birthDate"
                 [(ngModel)]="costumer.birthDate"
-                type="date"
+                placeholder="00/00/0000"
+                type="text"
                 matInput
               />
             </mat-form-field>
@@ -60,12 +63,16 @@
         </mat-card-content>
 
         <mat-card-actions>
+          @if(!isThereId){
           <button type="submit" mat-flat-button color="primary">
             <mat-icon>save</mat-icon> Salvar
           </button>
+          }@else{
           <button mat-flat-button color="primary">
             <mat-icon>refresh</mat-icon> Atualizar
           </button>
+          }
+
           <button mat-flat-button color="accent" class="ml-5">
             <mat-icon>backspace</mat-icon> Deletar
           </button>

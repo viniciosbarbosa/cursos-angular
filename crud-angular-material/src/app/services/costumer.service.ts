@@ -9,10 +9,6 @@ export class CostumerService {
 
   static REPO_COSTUMERS = '_COSTUMERS';
 
-  save(costumer: Costumer) {
-    console.log('Saving costumer', costumer);
-  }
-
   getStorage(): Costumer[] {
     const repoCostumer = localStorage.getItem(CostumerService.REPO_COSTUMERS);
 
@@ -28,6 +24,11 @@ export class CostumerService {
     }
   }
 
+  getCostumerById(id: string): Costumer | undefined {
+    const costumer = this.getStorage().find((costumer) => costumer.id === id);
+    return costumer;
+  }
+
   listCostumers(nameSearch: string): Costumer[] {
     const costumers = this.getStorage();
     if (!nameSearch) {
@@ -36,6 +37,24 @@ export class CostumerService {
     return costumers.filter(
       (costumer) => costumer.name?.indexOf(nameSearch) !== -1
     );
+  }
+
+  updateCostomer(costumers: Costumer[]) {
+    localStorage.setItem(
+      CostumerService.REPO_COSTUMERS,
+      JSON.stringify(costumers)
+    );
+  }
+
+  deleteCostumer(id: string): Costumer[] {
+    const storage = this.getStorage();
+    const newCostumerList = storage.filter((c) => c.id !== id);
+    localStorage.setItem(
+      CostumerService.REPO_COSTUMERS,
+      JSON.stringify(newCostumerList)
+    );
+
+    return newCostumerList;
   }
 
   saveStorage(costumers: Costumer) {
