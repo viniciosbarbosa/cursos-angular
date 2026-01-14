@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { Component, OnInit } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -25,11 +26,17 @@ import { Costumer } from '../register/register';
 })
 export class SearchComponent implements OnInit {
   constructor(private service: CostumerService) {}
+  nameCostumer: string = '';
+  tableColumns: string[] = ['id', 'name', 'cpf', 'birthDate', 'email'];
 
   costumerList: Costumer[] = [];
 
   ngOnInit() {
     this.costumerList = this.service.listCostumers('');
     console.log(this.costumerList);
+  }
+
+  searchCostumer() {
+    this.costumerList = this.service.listCostumers(this.nameCostumer);
   }
 }

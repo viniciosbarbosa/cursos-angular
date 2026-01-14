@@ -28,8 +28,14 @@ export class CostumerService {
     }
   }
 
-  listCostumers(name: string): Costumer[] {
-    return this.getStorage();
+  listCostumers(nameSearch: string): Costumer[] {
+    const costumers = this.getStorage();
+    if (!nameSearch) {
+      return costumers;
+    }
+    return costumers.filter(
+      (costumer) => costumer.name?.indexOf(nameSearch) !== -1
+    );
   }
 
   saveStorage(costumers: Costumer) {
