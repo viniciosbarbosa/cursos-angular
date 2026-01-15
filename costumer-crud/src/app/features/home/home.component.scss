@@ -1,0 +1,48 @@
+.container {
+  padding: 1rem;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  .card-option {
+    background-color: whitesmoke;
+    width: 48%;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    @media (max-width: 600px) {
+      width: 100%;
+      height: 25vh;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.15);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+
+  .full {
+    width: 100%;
+  }
+}

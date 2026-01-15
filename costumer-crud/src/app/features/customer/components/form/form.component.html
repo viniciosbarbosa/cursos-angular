@@ -1,0 +1,63 @@
+<div class="container">
+  <form [formGroup]="form" (submit)="onSubmit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input
+        formControlName="name"
+        matInput
+        type="text"
+        placeholder="Ex: José da silva"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>CPF</mat-label>
+      <input
+        mask="000.000.000-00"
+        formControlName="cpf"
+        matInput
+        type="text"
+        placeholder="000.000.000-00"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input
+        formControlName="email"
+        matInput
+        type="text"
+        placeholder="jose@email.com"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Data de Nascimento</mat-label>
+      <input matInput formControlName="birthDay" [matDatepicker]="picker" />
+
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Estado</mat-label>
+      <mat-select (selectionChange)="getCity($event)" formControlName="state">
+        <mat-option></mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Cidade</mat-label>
+
+      <mat-select formControlName="city">
+        <mat-option></mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+  <button type="submit" mat-flat-button [color]="isEdit ? 'accent' : 'primary'">
+    {{ isEdit ? "Atualizar" : "Enviar" }}
+  </button>
+</div>

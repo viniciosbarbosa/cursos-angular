@@ -1,0 +1,26 @@
+<mat-toolbar color="primary" class="header">
+  <span class="title">Customer CRUD</span>
+
+  <span class="spacer"></span>
+
+  <nav class="menu desktop">
+    <button mat-button routerLink="/home">Home</button>
+    <button mat-button (click)="registerPage()">Cadastrar</button>
+    <button mat-button (click)="searchPage()">Consultar</button>
+  </nav>
+
+  <button
+    mat-icon-button
+    class="mobile"
+    [matMenuTriggerFor]="menu"
+    aria-label="Menu"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/home">Home</button>
+    <button mat-menu-item routerLink="/register">Cadastrar</button>
+    <button mat-menu-item routerLink="/search">Consultar</button>
+  </mat-menu>
+</mat-toolbar>

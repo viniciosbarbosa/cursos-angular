@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.menu a.active {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Responsivo */
+.desktop {
+  display: flex;
+}
+
+.mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: inline-flex;
+  }
+}

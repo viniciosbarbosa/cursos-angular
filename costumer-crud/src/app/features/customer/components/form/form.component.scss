@@ -1,0 +1,60 @@
+:host {
+  display: block;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 80% 20%;
+  gap: 1rem;
+  grid-auto-flow: row;
+}
+
+form mat-form-field:nth-child(n + 3) {
+  grid-column: span 1;
+}
+
+button {
+  width: 13rem;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+@media (min-width: 769px) {
+  form {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* 1º campo = 80% */
+  form mat-form-field:nth-child(1) {
+    grid-column: span 2;
+  }
+
+  /* 2º campo = 20% */
+  form mat-form-field:nth-child(2) {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0;
+  }
+  form {
+    grid-template-columns: 1fr;
+  }
+
+  form mat-form-field {
+    grid-column: span 1;
+  }
+
+  button {
+    width: 100%;
+  }
+}
