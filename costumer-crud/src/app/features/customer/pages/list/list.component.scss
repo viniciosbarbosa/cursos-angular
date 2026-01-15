@@ -1,41 +1,127 @@
+:host {
+  display: block;
+}
+
 .container {
   display: block;
   margin: 0 auto;
   padding-top: 2rem;
-  .card {
-    max-width: 60%;
-    display: block;
-    cursor: pointer;
-    margin: 0 auto;
-    transition: box-shadow 0.2s ease;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
-    padding-top: 1rem;
-    margin-bottom: 2rem;
-    @media (max-width: 600px) {
-      max-width: 90%;
-    }
-    &:hover {
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3), 0 20px 60px rgba(0, 0, 0, 0.2);
-    }
-    mat-card-content {
-      mat-form-field {
-        width: 80%;
-        @media (max-width: 600px) {
-          width: 100%;
-        }
-      }
 
-      button {
-        text-transform: capitalize;
-        margin-left: 2rem;
-        padding: 1.5rem 3rem;
-        @media (max-width: 600px) {
-          margin-left: 0rem;
-        }
+  mat-card-content {
+    mat-form-field {
+      width: 80%;
+      @media (max-width: 600px) {
+        width: 100%;
+      }
+    }
+
+    .btn-submit {
+      text-transform: capitalize;
+      margin-left: 2rem;
+      padding: 1.5rem 3rem;
+
+      @media (max-width: 600px) {
+        margin-left: 0;
+        width: 100%;
+        padding: 1rem;
       }
     }
   }
+}
 
-  .table {
+.card {
+  max-width: 60%;
+  margin: 0 auto;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    max-width: 95%;
+    box-shadow: none;
+  }
+
+  .no-customer {
+    height: 50vh;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+  }
+}
+
+table.table,
+table.table * {
+  box-sizing: border-box;
+}
+
+table.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    text-align: left;
+  }
+
+  mat-checkbox {
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .actions {
+    display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+  mat-checkbox {
+    transform: translate(-0.5rem, 1px);
+  }
+  table.table thead {
+    display: none;
+  }
+
+  table.table,
+  table.table tbody,
+  table.table tr,
+  table.table td {
+    display: block;
+    width: 100%;
+  }
+
+  table.table tr {
+    margin-bottom: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    padding: 0.5rem 1rem;
+    background: #fff;
+  }
+
+  table.table td {
+    border: none;
+    padding: 0.4rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  table.table td:not([data-label="Selecionar"])::before {
+    content: attr(data-label) ":";
+    font-weight: 600;
+    opacity: 0.8;
+    min-width: 0;
+  }
+
+  table.table td[data-label="Selecionar"]::before {
+    content: none;
   }
 }

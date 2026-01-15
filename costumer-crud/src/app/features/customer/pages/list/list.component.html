@@ -19,30 +19,65 @@
           }
         </mat-form-field>
 
-        <button type="submit" color="primary" mat-flat-button>enviar</button>
+        <button
+          class="btn-submit"
+          type="submit"
+          color="primary"
+          mat-flat-button
+        >
+          enviar
+        </button>
       </form>
     </mat-card-content>
   </mat-card>
 
   <mat-card class="card">
     <mat-card-content>
-      <table>
-        <tr>
-          <th>Nome</th>
-          <th>Telefone</th>
-          <th>Email</th>
-          <th>CPF</th>
-        </tr>
+      @if(customerList.length){
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Email</th>
+            <th>CPF</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
 
-        @for( custumer of customerList; track $index) {
-        <tr>
-          <th>{{ custumer.name }}</th>
-          <th>{{ custumer.phone }}</th>
-          <th>{{ custumer.email }}</th>
-          <th>{{ custumer.cpf }}</th>
-        </tr>
-        }
+        <tbody>
+          @for (custumer of customerList; track $index) {
+          <tr>
+            <td data-label="Selecionar">
+              <mat-checkbox color="primary"></mat-checkbox>
+            </td>
+
+            <td data-label="Nome">{{ custumer.name }}</td>
+            <td data-label="Telefone">{{ custumer.phone }}</td>
+            <td data-label="Email">{{ custumer.email }}</td>
+            <td data-label="CPF">{{ custumer.cpf }}</td>
+
+            <td data-label="Ações">
+              <div class="actions">
+                <button mat-icon-button color="primary">
+                  <mat-icon>edit</mat-icon>
+                </button>
+
+                <button mat-icon-button color="warn">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </td>
+          </tr>
+          }
+        </tbody>
       </table>
+      }@else {
+      <div (click)="registerCustomer()" class="no-customer">
+        cadastre novos clientes
+      </div>
+      }
     </mat-card-content>
   </mat-card>
 </div>
