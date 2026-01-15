@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="form" (submit)="onSubmit()">
+  <form [formGroup]="form">
     <mat-form-field appearance="outline">
       <mat-label>Nome</mat-label>
       <input
@@ -8,6 +8,12 @@
         type="text"
         placeholder="Ex: José da silva"
       />
+
+      @if (form.get('name')?.hasError('required')) {
+      <mat-error>Nome é obrigatório</mat-error>
+      } @if (form.get('name')?.hasError('minlength')) {
+      <mat-error>Mínimo de 2 caracteres</mat-error>
+      }
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -19,6 +25,12 @@
         type="text"
         placeholder="000.000.000-00"
       />
+
+      @if (form.get('cpf')?.hasError('required')) {
+      <mat-error>CPF é obrigatório</mat-error>
+      } @if (form.get('cpf')?.hasError('minlength')) {
+      <mat-error>Mínimo de 11 caracteres</mat-error>
+      }
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -29,35 +41,98 @@
         type="text"
         placeholder="jose@email.com"
       />
+
+      @if (form.get('email')?.hasError('required')) {
+      <mat-error>Email é obrigatório</mat-error>
+      } @if (form.get('email')?.hasError('email')) {
+      <mat-error>Email invalido</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Telefone</mat-label>
+      <input
+        formControlName="phone"
+        matInput
+        type="text"
+        mask="(00) 00000-0000"
+        placeholder="(00) 00000-0000"
+      />
+
+      @if (form.get('phone')?.hasError('required')) {
+      <mat-error>Telefone é obrigatório</mat-error>
+      } @if (form.get('phone')?.hasError('minlength')) {
+      <mat-error>Telefone invalido</mat-error>
+      }
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Data de Nascimento</mat-label>
-      <input matInput formControlName="birthDay" [matDatepicker]="picker" />
+      <input
+        ma
+        matInput
+        [max]="maxDate"
+        formControlName="birthDay"
+        [matDatepicker]="picker"
+      />
 
       <mat-datepicker-toggle
         matIconSuffix
         [for]="picker"
       ></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
+
+      @if (form.get('birthDay')?.hasError('required')) {
+      <mat-error>Data de nascimento é obrigatória</mat-error>
+      } @if (form.get('birthDay')?.hasError('matDatepickerMax')) {
+      <mat-error>A data não pode ser futura</mat-error>
+      }
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Estado</mat-label>
       <mat-select (selectionChange)="getCity($event)" formControlName="state">
-        <mat-option></mat-option>
+        @for(state of states; track state.sigla){
+        <mat-option [value]="state.sigla">{{ state.sigla }}</mat-option>
+        }
       </mat-select>
+      @if (form.get('state')?.hasError('required')) {
+      <mat-error>Selecione um estado</mat-error>
+      }
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Cidade</mat-label>
 
-      <mat-select formControlName="city">
-        <mat-option></mat-option>
-      </mat-select>
+      <input
+        type="text"
+        placeholder="Digite a cidade"
+        matInput
+        formControlName="city"
+        [matAutocomplete]="auto"
+      />
+
+      <mat-autocomplete #auto="matAutocomplete">
+        @for (city of filteredCities$ | async; track city.nome) {
+        <mat-option [value]="city.nome">
+          {{ city.nome }}
+        </mat-option>
+        }
+      </mat-autocomplete>
+
+      @if (form.get('city')?.hasError('required')) {
+      <mat-error>Cidade é obrigatória</mat-error>
+      }
     </mat-form-field>
   </form>
-  <button type="submit" mat-flat-button [color]="isEdit ? 'accent' : 'primary'">
+
+  <button
+    (click)="onSubmit()"
+    [disabled]="form.invalid"
+    type="submit"
+    mat-flat-button
+    [color]="isEdit ? 'accent' : 'primary'"
+  >
     {{ isEdit ? "Atualizar" : "Enviar" }}
   </button>
 </div>

@@ -24,6 +24,7 @@ button {
   width: 13rem;
   border-radius: 0.5rem;
   padding: 1.5rem;
+  cursor: pointer;
 }
 
 @media (min-width: 769px) {
@@ -31,12 +32,10 @@ button {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  /* 1º campo = 80% */
   form mat-form-field:nth-child(1) {
     grid-column: span 2;
   }
 
-  /* 2º campo = 20% */
   form mat-form-field:nth-child(2) {
     grid-column: span 1;
   }
