@@ -27,6 +27,13 @@ export class ListComponent implements OnInit {
     console.log(this.form);
   }
 
+  deleterCustomer(customer: Customer) {
+    if (customer) {
+      this.customerService.deleteCustomerData(customer);
+      this.customerList = this.customerService.getStorage();
+    }
+  }
+
   updateCustomer(id: string | undefined) {
     if (id) {
       this.router.navigate([

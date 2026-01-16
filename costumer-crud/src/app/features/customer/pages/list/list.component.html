@@ -47,28 +47,32 @@
         </thead>
 
         <tbody>
-          @for (costumer of customerList; track $index) {
+          @for (custumer of customerList; track $index) {
           <tr>
             <td data-label="Selecionar">
               <mat-checkbox color="primary"></mat-checkbox>
             </td>
 
-            <td data-label="Nome">{{ costumer.name }}</td>
-            <td data-label="Telefone">{{ costumer.phone }}</td>
-            <td data-label="Email">{{ costumer.email }}</td>
-            <td data-label="CPF">{{ costumer.cpf }}</td>
+            <td data-label="Nome">{{ custumer.name }}</td>
+            <td data-label="Telefone">{{ custumer.phone }}</td>
+            <td data-label="Email">{{ custumer.email }}</td>
+            <td data-label="CPF">{{ custumer.cpf }}</td>
 
             <td data-label="Ações">
               <div class="actions">
                 <button
-                  (click)="updateCustomer(costumer.id)"
+                  (click)="updateCustomer(custumer.id)"
                   mat-icon-button
                   color="primary"
                 >
                   <mat-icon>edit</mat-icon>
                 </button>
 
-                <button mat-icon-button color="warn">
+                <button
+                  (click)="deleterCustomer(custumer)"
+                  mat-icon-button
+                  color="warn"
+                >
                   <mat-icon>delete</mat-icon>
                 </button>
               </div>
