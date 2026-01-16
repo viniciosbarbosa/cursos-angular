@@ -24,7 +24,17 @@ export class ListComponent implements OnInit {
   });
 
   onSubmit() {
-    console.log(this.form);
+    if (this.form.invalid) {
+      return;
+    }
+
+    const customerName = this.form.value.name ?? '';
+    console.log(customerName);
+    this.customerService
+      .getCustomerByName(customerName)
+      .subscribe((response) => {
+        this.customerList = response;
+      });
   }
 
   deleterCustomer(customer: Customer) {

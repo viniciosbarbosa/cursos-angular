@@ -41,7 +41,7 @@ export class FormComponent implements OnInit, OnChanges {
   form!: FormGroup;
   maxDate = new Date();
   customer!: Customer;
-
+  isEdit: boolean = false;
   @Output() submitForm = new EventEmitter<any>();
   @Input() customerData: Customer = {};
 
@@ -67,6 +67,7 @@ export class FormComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     if (this.customerData && this.customerData.id) {
       this.customer = { ...this.customerData };
+      this.isEdit = true;
     } else {
       this.customer = Customer.newClient();
     }

@@ -47,6 +47,12 @@ export class CustomerService {
     );
   }
 
+  getCustomerByName(name: string): Observable<Customer[]> {
+    const storage = this.getStorage();
+    if (!name) return throwError(() => new Error('Customer not found'));
+
+    return of(storage.filter((c) => c.name?.indexOf(name) !== -1));
+  }
   deleteCustomerData(customer: Customer) {
     const storage = this.getStorage();
 

@@ -132,8 +132,8 @@
     [disabled]="form.invalid"
     type="submit"
     mat-flat-button
-    [color]="customerData ? 'accent' : 'primary'"
+    [color]="isEdit ? 'accent' : 'primary'"
   >
-    {{ customerData ? "Atualizar" : "Enviar" }}
+    {{ isEdit ? "Atualizar" : "Enviar" }}
   </button>
 </div>
