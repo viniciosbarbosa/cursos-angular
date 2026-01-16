@@ -27,6 +27,16 @@ export class ListComponent implements OnInit {
     console.log(this.form);
   }
 
+  updateCustomer(id: string | undefined) {
+    if (id) {
+      this.router.navigate([
+        CUSTOMER_ROUTES_NAME.BASE_URL,
+        id,
+        CUSTOMER_ROUTES_NAME.EDIT,
+      ]);
+    }
+  }
+
   registerCustomer() {
     this.router.navigate([
       CUSTOMER_ROUTES_NAME.BASE_URL,

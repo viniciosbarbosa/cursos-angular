@@ -6,6 +6,9 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { AsyncPipe } from '@angular/common';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [],
@@ -17,7 +20,10 @@ import { CommonModule } from '@angular/common';
     MatFormFieldModule,
     MatSelectModule,
     MatDatepickerModule,
+    MatAutocompleteModule,
     NgxMaskDirective,
+    AsyncPipe,
+    MatCheckboxModule,
   ],
   providers: [provideNgxMask()],
   exports: [
@@ -27,6 +33,9 @@ import { CommonModule } from '@angular/common';
     MatFormFieldModule,
     MatSelectModule,
     MatDatepickerModule,
+    MatAutocompleteModule,
+    MatCheckboxModule,
+    AsyncPipe,
   ],
 })
 export class FormModule {}

@@ -1,1 +1,11 @@
-<p>edit works!</p>
+<div class="container">
+  <div class="content">
+    <h2>Editar de Cliente</h2>
+    <mat-card class="card">
+      <app-form
+        [customerData]="customerData"
+        (submitForm)="updateCustomer($event)"
+      ></app-form>
+    </mat-card>
+  </div>
+</div>

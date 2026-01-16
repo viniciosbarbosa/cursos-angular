@@ -69,8 +69,9 @@
     <mat-form-field appearance="outline">
       <mat-label>Data de Nascimento</mat-label>
       <input
-        ma
         matInput
+        (focus)="picker.open()"
+        (click)="picker.open()"
         [max]="maxDate"
         formControlName="birthDay"
         [matDatepicker]="picker"
@@ -131,8 +132,8 @@
     [disabled]="form.invalid"
     type="submit"
     mat-flat-button
-    [color]="isEdit ? 'accent' : 'primary'"
+    [color]="customerData ? 'accent' : 'primary'"
   >
-    {{ isEdit ? "Atualizar" : "Enviar" }}
+    {{ customerData ? "Atualizar" : "Enviar" }}
   </button>
 </div>

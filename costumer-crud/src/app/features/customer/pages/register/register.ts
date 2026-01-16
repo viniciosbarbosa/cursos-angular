@@ -5,7 +5,7 @@ export class Customer {
   name?: string;
   cpf?: string;
   phone?: string;
-  birthDate?: string;
+  birthDay?: string;
   email?: string;
   state?: string;
   city?: string;
