@@ -7,7 +7,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./template/template.module').then((m) => m.TemplateModule),
   },
-  // { path: '', pathMatch: 'full', redirectTo: 'paginas' },
+  { path: '', pathMatch: 'full', redirectTo: 'paginas' },
 ];
 
 @NgModule({

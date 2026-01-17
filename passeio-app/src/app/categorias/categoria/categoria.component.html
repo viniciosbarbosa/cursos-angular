@@ -2,7 +2,7 @@
   <h2 class="text-2x1 font-semibold text-gray-700 mg-4">Nova Categoria</h2>
   <hr class="mt-2 mb-2" />
 
-  <form id="categoriaForm" [formGroup]="camposForm">
+  <form id="categoriaForm" [formGroup]="camposForm" (ngSubmit)="save()">
     <div class="mb-4">
       <label class="block text-gray-600 font-medium mb-2">Nome</label>
       <input

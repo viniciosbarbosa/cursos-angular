@@ -1,9 +1,24 @@
 {
   "categorias": [
     {
-      "id": 1,
-      "nome": "restaurantes",
-      "descricao": "Lugares para alimentacao"
+      "id": "2",
+      "nome": "Shoppings",
+      "descricao": "compras e passeio"
+    },
+    {
+      "id": "1",
+      "nome": "Restaurantes",
+      "descricao": "Lugares para alimentação"
+    },
+    {
+      "id": "3f33",
+      "nome": "Praias",
+      "descricao": "Lugares para tomar banho"
+    },
+    {
+      "id": "10bc",
+      "nome": "Barcos",
+      "descricao": "Lugares para velejar"
     }
   ]
 }
