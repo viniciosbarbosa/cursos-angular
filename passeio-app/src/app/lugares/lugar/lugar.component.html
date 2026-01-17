@@ -1,0 +1,97 @@
+<div class="p-6 max-w-lg mx-auto bg-white shadow-lg rounded-lg mt-6">
+  <h2 class="text-2x1 font-semibold text-gray-700 mg-4">Novo Lugar</h2>
+  <hr class="mt-2 mb-2" />
+
+  <form id="lugarForm" [formGroup]="camposForm" (ngSubmit)="save()">
+    <div class="mb-4">
+      <label For="nome" class="block text-gray-600 font-medium mb-2"
+        >Nome do lugar</label
+      >
+
+      <input
+        type="text"
+        id="nome"
+        name="nome"
+        formControlName="nome"
+        placeholder="Ex: Praia do sol"
+        class="w-full p-3 border border-gray-300 rounded shadow-sm focus:ring focus:ring-blue-400"
+        required
+      />
+
+      @if (
+        camposForm.get("nome")?.hasError("required") &&
+        camposForm.get("nome")?.touched
+      ) {
+        <span class="text-red-500 text-sm">Campo Obrigatorio</span>
+      }
+    </div>
+
+    <div class="mb-4">
+      <label For="nome" class="block text-gray-600 font-medium mb-2"
+        >Categoria</label
+      >
+    </div>
+
+    <div class="mb-4">
+      <label For="nome" class="block text-gray-600 font-medium mb-2"
+        >Localização</label
+      >
+
+      <input
+        type="text"
+        id="localizacao"
+        name="localizacao"
+        formControlName="localizacao"
+        placeholder="Ex: São Paulo"
+        class="w-full p-3 border border-gray-300 rounded shadow-sm focus:ring focus:ring-blue-400"
+        required
+      />
+
+      @if (
+        camposForm.get("localizacao")?.hasError("required") &&
+        camposForm.get("localizacao")?.touched
+      ) {
+        <span class="text-red-500 text-sm">Campo Obrigatorio</span>
+      }
+    </div>
+
+    <div class="mb-4">
+      <label For="nome" class="block text-gray-600 font-medium mb-2"
+        >Url Foto</label
+      >
+
+      <input
+        type="text"
+        id="urlFoto"
+        name="urlFoto"
+        formControlName="urlFoto"
+        placeholder="Ex: http://exemplo.com/foto.jpg"
+        class="w-full p-3 border border-gray-300 rounded shadow-sm focus:ring focus:ring-blue-400"
+        required
+      />
+
+      @if (
+        camposForm.get("urlFoto")?.hasError("required") &&
+        camposForm.get("urlFoto")?.touched
+      ) {
+        <span class="text-red-500 text-sm">Campo Obrigatorio</span>
+      }
+    </div>
+
+    <div class="mb-4">
+      <label For="nome" class="block text-gray-600 font-medium mb-2"
+        >Avaliação</label
+      >
+    </div>
+
+    <button
+      [disabled]="this.camposForm.invalid"
+      type="submit"
+      class="w-full bg-blue-600 text-white font-semibold p-3 rounded shadow hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+    >
+      Cadastrar Lugar
+    </button>
+  </form>
+
+  <hr class="mt-2 mb-2" />
+</div>
