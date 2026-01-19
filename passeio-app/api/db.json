@@ -20,5 +20,39 @@
       "nome": "Barcos",
       "descricao": "Lugares para velejar"
     }
+  ],
+  "lugares": [
+    {
+      "id": "1505",
+      "nome": "Shopping DF",
+      "categoria": "Shoppings",
+      "localizacao": "brasilia",
+      "urlFoto": "https://upload.wikimedia.org/wikipedia/commons/7/79/Brasilia_Shopping_01.jpg",
+      "avaliacao": "3"
+    },
+    {
+      "id": "4bbb",
+      "nome": "Praia toque toque pequeno",
+      "categoria": "Praias",
+      "localizacao": "São Paulo",
+      "urlFoto": "https://img1.wsimg.com/isteam/ip/48999bc8-f026-4401-a08c-054495643998/IMG_6376.jpeg/:/rs=w:1280",
+      "avaliacao": "5"
+    },
+    {
+      "id": "b39b",
+      "nome": "Outback",
+      "categoria": "Restaurantes",
+      "localizacao": "Minas Gerais",
+      "urlFoto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOXU-v35uzP8kGavw4BbuTrXi5F1Dpsl9W8g&s",
+      "avaliacao": "2"
+    },
+    {
+      "id": "8dee",
+      "nome": "Ilha porchart",
+      "categoria": "Barcos",
+      "localizacao": "São vicente",
+      "urlFoto": "https://upload.wikimedia.org/wikipedia/commons/1/1f/At_S%C3%A3o_Vicente_2018_010.jpg",
+      "avaliacao": "4"
+    }
   ]
 }

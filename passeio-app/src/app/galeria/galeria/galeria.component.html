@@ -1,0 +1,63 @@
+<div class="p-4 bg-white shadow">
+  <form #frm="ngForm">
+    <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+      <input
+        [(ngModel)]="nomeFiltro"
+        name="nomeFiltro"
+        type="text"
+        placeholder="Pesquisar pelo nome do local"
+        class="w-full border border-gray-300 p-2 rounded shadow-sm focus:ring focus:ring-blue-400"
+      />
+
+      <select
+        [(ngModel)]="categoriaFiltro"
+        name="categoriaFiltro"
+        class="w-full border border-gray-300 p-2 rounded shadow-sm focus:ring focus:ring-blue-400"
+        id=""
+      >
+        <option [value]="-1">Todas as Categorias</option>
+        @for (categoria of categoriasFiltro; track categoria.nome) {
+          <option [value]="categoria.nome">
+            {{ categoria.nome }}
+          </option>
+        }
+      </select>
+
+      <button
+        type="button"
+        (click)="filter()"
+        class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-800 cursor-pointer"
+      >
+        Filtrar
+      </button>
+    </div>
+  </form>
+</div>
+
+<div
+  id="ligatesList"
+  class="p-4 grid rid-col-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+>
+  @for (lugar of lugares; track lugar.nome) {
+    <div class="bg-white shadow rounded overflow-hidden">
+      <img
+        [src]="lugar.urlFoto"
+        [alt]="lugar.nome"
+        class="w-full h-40 object-cover"
+      />
+      <div class="p-4">
+        <h2 class="text-lg font-semibold mb-2">{{ lugar.nome }}</h2>
+        <p class="text-gray-500">
+          Categoria: <span class="text-blue-600">{{ lugar.categoria }}</span>
+        </p>
+        <p class="text-gray-500">{{ lugar.localizacao }}</p>
+        <div class="mt-2 flex items-center">
+          <span
+            class="text-yellow-500"
+            [innerHTML]="getTotalEstrelas(lugar)"
+          ></span>
+        </div>
+      </div>
+    </div>
+  }
+</div>

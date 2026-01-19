@@ -12,7 +12,7 @@ const routes: Routes = [
         pathMatch: 'full',
         loadChildren: () =>
           import('../categorias/categorias.module').then(
-            (m) => m.CategoriasModule
+            (m) => m.CategoriasModule,
           ),
       },
       {
@@ -20,6 +20,12 @@ const routes: Routes = [
         pathMatch: 'full',
         loadChildren: () =>
           import('../lugares/lugares.module').then((m) => m.LugaresModule),
+      },
+      {
+        path: 'galeria',
+        pathMatch: 'full',
+        loadChildren: () =>
+          import('../galeria/galeria.module').then((m) => m.GaleriaModule),
       },
     ],
   },

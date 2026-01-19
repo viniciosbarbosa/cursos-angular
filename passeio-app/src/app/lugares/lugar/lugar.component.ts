@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Categoria } from '../../categorias/categoria';
+import { CategoriaService } from '../../categorias/categoria.service';
+import { LugarService } from '../service/lugar.service';
 @Component({
   selector: 'app-lugar',
   standalone: false,
@@ -11,14 +13,37 @@ export class LugarComponent implements OnInit {
   camposForm!: FormGroup;
   categorias: Categoria[] = [];
 
-  constructor() {}
+  constructor(
+    private categoriaService: CategoriaService,
+    private lugarService: LugarService,
+  ) {}
 
   ngOnInit(): void {
     this.createForm();
+    this.getAllCategorias();
+  }
+
+  getAllCategorias() {
+    this.categoriaService.obterTodas().subscribe((response) => {
+      console.log(response);
+      this.categorias = response;
+    });
   }
 
   save() {
-    console.log(this.camposForm.value);
+    this.camposForm.markAllAsTouched();
+
+    if (this.camposForm.valid) {
+      this.lugarService.salvar(this.camposForm.value).subscribe({
+        next: (response: any) => {
+          console.log(response);
+          this.camposForm.reset();
+        },
+        error: (error: any) => {
+          console.log(error);
+        },
+      });
+    }
   }
 
   createForm() {
