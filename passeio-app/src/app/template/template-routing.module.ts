@@ -10,6 +10,10 @@ const routes: Routes = [
       {
         path: 'categorias',
         pathMatch: 'full',
+        data: {
+          titulo: 'Categorias',
+          descricao: 'Gerencie as categorias dos lugares',
+        },
         loadChildren: () =>
           import('../categorias/categorias.module').then(
             (m) => m.CategoriasModule,
@@ -20,12 +24,20 @@ const routes: Routes = [
         pathMatch: 'full',
         loadChildren: () =>
           import('../lugares/lugares.module').then((m) => m.LugaresModule),
+        data: {
+          titulo: 'Lugares',
+          descricao: 'Gerencie o cadastro de lugares',
+        },
       },
       {
         path: 'galeria',
         pathMatch: 'full',
         loadChildren: () =>
           import('../galeria/galeria.module').then((m) => m.GaleriaModule),
+        data: {
+          titulo: 'Lista de lugares',
+          descricao: 'Descubra novos lugares para visitar',
+        },
       },
     ],
   },
