@@ -1,0 +1,35 @@
+<div
+  class="bg-gradient-to-r from-blue-500 to-blue-700 text-white min-h-screen flex flex-col justify-center items-center"
+>
+  <div class="text-center px-6">
+    <h1 class="text-4xl font-bold mb-4">
+      Bem Vindo a sua lista de lugares favoritos
+    </h1>
+
+    <p class="text-lg mb-4 font-bold">
+      Explore, organize e compartilhe suas experiências de passeio favoritas.
+    </p>
+
+    @if (isLoggedIn()) {
+      <button
+        (click)="navegar()"
+        class="bg-white text-blue-400 font-semibold py-6 px-8 rounded-full hover:bg-gray-100 flex space-x-3 items-center"
+      >
+        Ola {{ profile?.name }} , clique aqui para aproveitar o site
+      </button>
+    }
+
+    @if (!isLoggedIn()) {
+      <button
+        (click)="logarComGoogle()"
+        class="bg-white text-blue-700 font-semibold py-6 px-8 rounded-full hover:bg-gray-100 flex space-x-3 items-center"
+      >
+        <img
+          width="50px"
+          src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"
+        />
+        Logar com Google
+      </button>
+    }
+  </div>
+</div>
