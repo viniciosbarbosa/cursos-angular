@@ -1,0 +1,34 @@
+{
+  "categorias": [
+    {
+      "id": "2",
+      "nome": "Shoppings",
+      "descricao": "compras e passeio"
+    },
+    {
+      "id": "1",
+      "nome": "Restaurantes",
+      "descricao": "Lugares para alimentação"
+    },
+    {
+      "id": "3f33",
+      "nome": "Praias",
+      "descricao": "Lugares para tomar banho"
+    },
+    {
+      "id": "10bc",
+      "nome": "Barcos",
+      "descricao": "Lugares para velejar"
+    }
+  ],
+  "lugares": [
+    {
+      "id": "1505",
+      "nome": "Shopping DF",
+      "categoria": "Shoppings",
+      "localizacao": "brasilia",
+      "urlFoto": "https://upload.wikimedia.org/wikipedia/commons/7/79/Brasilia_Shopping_01.jpg",
+      "avaliacao": "3"
+    }
+  ]
+}
