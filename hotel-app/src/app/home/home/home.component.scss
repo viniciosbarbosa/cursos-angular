@@ -1,0 +1,58 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 2rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  h2 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-weight: 700;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    button {
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+      &:first-child {
+        background: linear-gradient(135deg, #3498db, #2980b9);
+        &:hover {
+          background: linear-gradient(135deg, #2980b9, #2471a3);
+          transform: translateY(-3px);
+          box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3);
+        }
+      }
+
+      &:last-child {
+        background: linear-gradient(135deg, #1abc9c, #16a085);
+        &:hover {
+          background: linear-gradient(135deg, #16a085, #148f77);
+          transform: translateY(-3px);
+          box-shadow: 0 6px 20px rgba(26, 188, 156, 0.3);
+        }
+      }
+
+      &:active {
+        transform: translateY(-1px);
+      }
+    }
+  }
+}

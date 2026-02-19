@@ -1,0 +1,132 @@
+h2 {
+  font-style: italic;
+  color: #333;
+}
+
+.add-button {
+  display: block;
+  margin-left: auto;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  border: none;
+  border-radius: 1.5625rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-style: normal;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(52, 152, 219, 0.3);
+    background: linear-gradient(135deg, #2980b9, #2471a3);
+  }
+}
+
+.reservation-list {
+  padding: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+
+  h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    border-bottom: 3px solid #3498db;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+  }
+
+  .reservation-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .reservation-card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition:
+      transform 0.2s,
+      box-shadow 0.2s;
+
+    &:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+
+      p {
+        margin: 0.5rem 0;
+        color: #555;
+        font-size: 1rem;
+
+        strong {
+          color: #222;
+          width: 7.5rem;
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  .btn-delete {
+    padding: 0.6rem 1.2rem;
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #d9363e;
+    }
+  }
+
+  .empty-message {
+    text-align: center;
+    padding: 3rem;
+    background: #f9f9f9;
+    border-radius: 12px;
+    color: #999;
+    font-style: italic;
+    border: 2px dashed #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+
+    button {
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(135deg, #3498db, #2980b9);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-style: normal;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(52, 152, 219, 0.3);
+        background: linear-gradient(135deg, #2980b9, #2471a3);
+      }
+    }
+  }
+}

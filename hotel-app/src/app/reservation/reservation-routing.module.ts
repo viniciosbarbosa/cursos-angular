@@ -9,7 +9,11 @@ const routes: Routes = [
     component: ReservationListComponent,
   },
   {
-    path: 'new',
+    path: 'form',
+    component: ReservationFormComponent,
+  },
+  {
+    path: 'edit/:id',
     component: ReservationFormComponent,
   },
   {

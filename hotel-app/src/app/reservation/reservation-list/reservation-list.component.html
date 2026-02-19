@@ -1,1 +1,35 @@
-<p>reservation-list works!</p>
+<div class="reservation-list">
+  <h2>Reservations List</h2>
+  <button class="add-button" (click)="addNewReservation()">+</button>
+
+  <ul class="reservation-grid">
+    @for (reservation of reservations; track reservation.id) {
+      <li class="reservation-card">
+        <div class="card-body" (click)="updateReservation(reservation.id)">
+          <p><strong>Guest Name:</strong> {{ reservation.guestName }}</p>
+          <p><strong>Guest Email:</strong> {{ reservation.guestEmail }}</p>
+          <p>
+            <strong>Check-In Date:</strong> {{ reservation.checkInDate | date }}
+          </p>
+          <p>
+            <strong>Check-Out Date:</strong>
+            {{ reservation.checkOutDate | date }}
+          </p>
+          <p><strong>Room Number:</strong> {{ reservation.roomNumber }}</p>
+          <button
+            class="btn-delete"
+            (click)="deleteReservation(reservation.id)"
+          >
+            Delete
+          </button>
+        </div>
+      </li>
+    } @empty {
+      <p class="empty-message">
+        NO RESERVATIONS FOUND
+
+        <button routerLink="/reservation/form">Add Reservation</button>
+      </p>
+    }
+  </ul>
+</div>
