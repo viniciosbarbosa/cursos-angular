@@ -1,0 +1,48 @@
+:host {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgb a(0, 0, 0, 0.1);
+
+  mat-toolbar {
+    padding: 0;
+  }
+
+  mat-toolbar-row {
+    max-width: 75rem; /* Alinhado com o seu container-large */
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.5rem;
+
+    @media (max-width: 768px) {
+      justify-content: center;
+      gap: 1rem;
+      padding: 0 1rem;
+    }
+  }
+
+  .link {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition:
+      background-color 0.3s ease,
+      transform 0.2s ease;
+    border-radius: 6px;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: scale(1.02);
+    }
+
+    @media (max-width: 480px) {
+      font-size: 0.9rem;
+      padding: 0 10px;
+    }
+  }
+}

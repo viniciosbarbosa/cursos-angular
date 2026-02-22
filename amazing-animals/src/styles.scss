@@ -14,7 +14,7 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: left;
+  justify-content: center;
   gap: 3rem;
 }
 
@@ -22,6 +22,10 @@ body {
   padding: 3.125rem;
   max-width: 75rem;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
 }
 
 .container-small {
