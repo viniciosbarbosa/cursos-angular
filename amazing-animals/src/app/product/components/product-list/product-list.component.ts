@@ -15,8 +15,11 @@ export class ProductListComponent implements OnInit {
 
   getAllProducts() {
     this.productService.getProducts().subscribe((response) => {
-      this.products = response;
-      console.log(this.products);
+      this.products = response.map((product) => ({
+        ...product,
+
+        image_url: 'assets/images/' + product.image_url,
+      }));
     });
   }
 

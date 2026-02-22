@@ -1,0 +1,10 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  .product-card {
+    width: 200px;
+  }
+}
