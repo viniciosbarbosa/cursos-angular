@@ -5,7 +5,7 @@
   <ul class="reservation-grid">
     @for (reservation of reservations; track reservation.id) {
       <li class="reservation-card">
-        <div class="card-body" (click)="updateReservation(reservation.id)">
+        <div class="card-body">
           <p><strong>Guest Name:</strong> {{ reservation.guestName }}</p>
           <p><strong>Guest Email:</strong> {{ reservation.guestEmail }}</p>
           <p>
@@ -16,6 +16,9 @@
             {{ reservation.checkOutDate | date }}
           </p>
           <p><strong>Room Number:</strong> {{ reservation.roomNumber }}</p>
+          <button class="btn-edit" (click)="updateReservation(reservation.id)">
+            Edit
+          </button>
           <button
             class="btn-delete"
             (click)="deleteReservation(reservation.id)"

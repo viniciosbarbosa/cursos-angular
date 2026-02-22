@@ -18,12 +18,16 @@ export class ReservationListComponent {
   ) {}
 
   ngOnInit(): void {
-    this.reservations = this.reservationService.getReservations();
+    this.reservationService.getReservations().subscribe((response) => {
+      this.reservations = response;
+    });
   }
 
   deleteReservation(id: string) {
     this.reservationService.deleteReservation(id);
-    this.reservations = this.reservationService.getReservations();
+    this.reservationService.getReservations().subscribe((response) => {
+      this.reservations = response;
+    });
   }
 
   addNewReservation() {
