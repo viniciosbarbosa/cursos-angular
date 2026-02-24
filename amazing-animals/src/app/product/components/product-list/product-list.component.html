@@ -3,7 +3,7 @@
 
   <div class="container-base">
     @for (product of products; track product.id) {
-      <mat-card class="product-card">
+      <mat-card class="product-card" (click)="addToCart()">
         <img
           mat-card-image
           [src]="product.image_url"
