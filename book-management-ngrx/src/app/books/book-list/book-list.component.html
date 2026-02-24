@@ -1,0 +1,18 @@
+<h1>Books</h1>
+<div class="book">
+  @for (book of books$ | async; track book.id) {
+    <h2>{{ book.title }}</h2>
+    <h3>{{ book.author }}</h3>
+    <button (click)="removeBook(book.id)">Remove</button>
+  }
+</div>
+
+<h2>Create a new book</h2>
+<div>
+  <input #bookId type="text" placeholder="Book Id" /><br />
+  <input #title type="text" placeholder="Title" /><br />
+  <input #author type="text" placeholder="Author" /><br />
+  <button (click)="addBook(bookId.value, title.value, author.value)">
+    Add
+  </button>
+</div>
