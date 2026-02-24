@@ -16,6 +16,8 @@ export class ProductListComponent implements OnInit {
   ) {}
 
   products: Product[] = [];
+  filteredProducts: Product[] = [];
+  sortOrder = 'asc';
 
   getAllProducts() {
     this.productService.getProducts().subscribe((response) => {
@@ -24,6 +26,7 @@ export class ProductListComponent implements OnInit {
 
         image_url: 'assets/images/' + product.image_url,
       }));
+      this.filteredProducts = this.products;
     });
   }
 
@@ -33,6 +36,24 @@ export class ProductListComponent implements OnInit {
       horizontalPosition: 'right',
       verticalPosition: 'top',
     });
+  }
+
+  applyFilter(event: Event) {
+    let searchTerm = (event.target as HTMLInputElement).value;
+    searchTerm = searchTerm.toLowerCase();
+    this.filteredProducts = this.products.filter((product) =>
+      product.name.toLowerCase().includes(searchTerm),
+    );
+  }
+
+  sortProducts(value: string) {
+    this.sortOrder = value;
+
+    if (this.sortOrder === 'asc') {
+      this.filteredProducts.sort((a, b) => a.price - b.price);
+    } else if (this.sortOrder === 'desc') {
+      this.filteredProducts.sort((a, b) => b.price - a.price);
+    }
   }
 
   ngOnInit(): void {

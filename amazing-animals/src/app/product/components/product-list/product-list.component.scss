@@ -8,6 +8,27 @@
     margin-bottom: 1rem;
     text-align: center;
   }
+
+  .search-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+
+    .search-input {
+      width: 45%;
+    }
+
+    .btn-filter {
+      width: 5%;
+      height: 56px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
   .product-card {
     width: 250px;
     border: 1px solid #e0e0e0;

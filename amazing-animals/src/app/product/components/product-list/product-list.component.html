@@ -1,8 +1,32 @@
 <div class="container-large">
   <h2>Our last collections</h2>
 
+  <div class="search-container">
+    <mat-form-field class="search-input" appearance="outline">
+      <input
+        matInput
+        placeholder="Search here..."
+        (input)="applyFilter($event)"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="search-input" appearance="outline">
+      <mat-select
+        placeholder="Category"
+        (selectionChange)="sortProducts($event.value)"
+      >
+        <mat-option value="asc">Cheaper</mat-option>
+        <mat-option value="desc">Expensive</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button class="btn-filter" mat-flat-button (click)="getAllProducts()">
+      <mat-icon>cleaning_services</mat-icon>
+    </button>
+  </div>
+
   <div class="container-base">
-    @for (product of products; track product.id) {
+    @for (product of filteredProducts; track product.id) {
       <mat-card class="product-card" (click)="addToCart()">
         <img
           mat-card-image
