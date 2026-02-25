@@ -6,9 +6,9 @@ import { of } from 'rxjs';
 })
 export class UserService {
   users = [
-    { id: 1, name: 'User 1' },
-    { id: 2, name: 'User 2' },
-    { id: 3, name: 'User 3' },
+    { id: 1, name: 'John Doe' },
+    { id: 2, name: 'Ana Doe' },
+    { id: 3, name: 'Maria Doe' },
   ];
 
   getUsers() {
